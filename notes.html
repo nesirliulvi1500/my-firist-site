@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Qeydlər</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+
+        <div class="menu">
+            <a href="index.html">Ana səhifə</a>
+            <a href="about.html">Haqqımda</a>
+            <a href="notes.html" class="active">Qeydlər</a>
+        </div>
+
+        <div class="card">
+            <h1>Qeydlər</h1>
+            <p>Burada qeydlər əlavə edə, düzəldə və silə bilərəm.</p>
+        </div>
+
+        <div class="card">
+            <h2>Yeni qeyd</h2>
+            <input id="noteInput" placeholder="nə isə yaz..." onkeydown="enterYoxla(event)">
+            <button onclick="elaveEt()">Əlavə et</button>
+            <ul id="qeydListesi"></ul>
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
