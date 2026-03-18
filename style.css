@@ -135,3 +135,31 @@ li button:first-of-type {
     cursor: pointer;
     width: auto;
 }
+h1 {
+    font-size: 32px;
+    background: linear-gradient(90deg, #00ffcc, #00aaff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.menu a {
+    margin-right: 15px;
+    text-decoration: none;
+    position: relative;
+    padding-bottom: 5px;
+}
+
+.menu a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0%;
+    height: 2px;
+    background: #00ffcc;
+    transition: 0.3s;
+}
+
+.menu a:hover::after {
+    width: 100%;
+}
