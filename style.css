@@ -159,3 +159,80 @@ body {
     font-size: 13px;
     margin-right: 10px;
 }
+/* Modal (Pop-up) Arxa Fonu */
+.modal {
+    display: none; /* İlkin olaraq gizlidir */
+    position: fixed; /* Ekrana sabitlənilir */
+    z-index: 2000; /* Hər şeyin üzərində olsun */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.85); /* Tünd şəffaf fon */
+    overflow: auto; /* Məzmun çox olsa, skrol olsun */
+    backdrop-filter: blur(5px); /* Müasir bulanıqlıq effekti */
+}
+
+/* Modalın Özü (Pəncərə) */
+.modal-content {
+    background-color: #1e293b;
+    margin: 5% auto; /* Yuxarıdan 5% boşluq, mərkəzlənsin */
+    padding: 40px;
+    border: 1px solid #38bdf8;
+    width: 70%; /* Ekranın 70%-ni tutsun */
+    max-width: 900px; /* Maksimum genişlik */
+    border-radius: 20px;
+    color: white;
+    position: relative;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.7);
+    animation: zoomIn 0.3s ease; /* Açılış animasiyası */
+}
+
+/* Animasiya */
+@keyframes zoomIn {
+    from {transform: scale(0.9); opacity: 0;}
+    to {transform: scale(1); opacity: 1;}
+}
+
+/* Bağlama düyməsi (X) */
+.close-modal {
+    color: #94a3b8;
+    position: absolute;
+    right: 25px;
+    top: 15px;
+    font-size: 35px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.close-modal:hover {
+    color: #38bdf8;
+}
+
+/* Modalın daxili elementləri */
+.modal-img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    margin-bottom: 25px;
+    border: 1px solid #334155;
+}
+
+.modal-body h2 {
+    color: #38bdf8;
+    margin-bottom: 10px;
+}
+
+.modal-date {
+    color: #64748b;
+    font-size: 13px;
+    margin-bottom: 20px;
+}
+
+.modal-text p {
+    color: #cbd5e1;
+    font-size: 16px;
+    margin-bottom: 15px;
+    line-height: 1.7;
+}

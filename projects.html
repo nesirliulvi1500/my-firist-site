@@ -8,6 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 <body>
+
     <nav class="menu">
         <a href="index.html">Ana səhifə</a>
         <a href="about.html">Haqqında</a>
@@ -17,35 +18,83 @@
 
     <header class="hero">
         <h1>Layihələrim</h1>
-        <p>Burada üzərində işlədiyim real layihələr və gələcək ideyalarımı paylaşıram.</p>
+        <p>Aşağıda mənim hazırkı və gələcək planlarım yer alır.</p>
     </header>
 
     <main class="container">
         <section class="projects-grid">
-            <div class="project-card">
+            
+            <div class="project-card" 
+                 data-title="İlk Saytım - Portfoliom" 
+                 data-date="Yanvar 2026"
+                 data-img="ilksaytim_ana.jpg"
+                 data-text="Bu layihə mənim veb proqramlaşdırma dünyasına ilk rəsmi addımımdır. Məqsədim özümü təqdim edə biləcəyim, responsiv və müasir dizaynlı bir şəxsi veb-sayt qurmaq idi. HTML5 və CSS3-ün ən son standartlarından istifadə edərək hazırladığım bu platforma, gələcək daha mürəkkəb layihələrim üçün bir təməl rolunu oynayır. Burada həm də laboratoriya təcrübələrimi bölüşməyi planlaşdırıram.">
                 <span class="icon">🌐</span>
                 <div class="project-badge">Tamamlanıb</div>
                 <h3>İlk Saytım</h3>
-                <p>HTML və CSS istifadə edərək qurduğum ilk çoxsəhifəli şəxsi veb-sayt layihəm.</p>
-                <div class="tags"><span>#HTML</span> <span>#CSS</span></div>
+                <p>HTML & CSS Portfoliom.</p>
+                <div class="tags"><span>#HTML</span> <span>#CSS</span> <span>#Responsive</span></div>
             </div>
 
-            <div class="project-card">
+            <div class="project-card" 
+                 data-title="Qida Analizi Bloqu" 
+                 data-date="Fevral 2026"
+                 data-img="laboratoriya.jpg"
+                 data-text="Qida mühəndisliyi təhsilim çərçivəsində öyrəndiyim laboratoriya analizlərini rəqəmsallaşdırıram. Mikrobiologiya və biokimya təcrübələrimin nəticələrini bu blokda izləyə bilərsiniz.">
                 <span class="icon">🧪</span>
                 <div class="project-badge">İdeya</div>
                 <h3>Qida Analizi Bloqu</h3>
-                <p>Laboratoriya təcrübələrimi və mikrobiologiya qeydlərimi paylaşacağım rəqəmsal gündəlik.</p>
-                <div class="tags"><span>#FoodTech</span> <span>#Lab</span></div>
+                <p>Elmi qeydlər platforması.</p>
+                <div class="tags"><span>#FoodTech</span> <span>#Science</span></div>
             </div>
 
-            <div class="project-card">
-                <span class="icon">🎨</span>
-                <div class="project-badge">Tezliklə</div>
-                <h3>Məhəmmədi Chickens</h3>
-                <p>Brendin tanıtımı üçün hazırlayacağım xüsusi dizaynlı Landing Page layihəsi.</p>
-                <div class="tags"><span>#Branding</span> <span>#UI</span></div>
-            </div>
         </section>
     </main>
+
+    <div id="projectModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="modal-body">
+                <img src="" alt="Layihə Şəkli" class="modal-img">
+                <h2>Başlıq</h2>
+                <p class="modal-date" style="color: #38bdf8; font-size: 14px; margin-bottom: 15px;"></p>
+                <div class="modal-text" style="line-height: 1.8; color: #cbd5e1;"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Səhifədəki hər hansı bir klikləməni dinləyirik
+        document.addEventListener("click", function(e) {
+            // Əgər kliklənən element .project-card-dırsa və ya onun daxilindədirsə
+            const card = e.target.closest(".project-card");
+            const modal = document.getElementById("projectModal");
+
+            if (card) {
+                // Kartdakı data- atributlarını oxuyuruq
+                const title = card.getAttribute("data-title");
+                const date = card.getAttribute("data-date");
+                const text = card.getAttribute("data-text");
+                const img = card.getAttribute("data-img");
+
+                // Modalın içini doldururuq
+                modal.querySelector("h2").innerText = title;
+                modal.querySelector(".modal-date").innerText = "Tarix: " + date;
+                modal.querySelector(".modal-text").innerText = text;
+                modal.querySelector(".modal-img").src = img;
+
+                // Modalı açırıq
+                modal.style.display = "block";
+                document.body.style.overflow = "hidden"; // Arxa fon skrol olmasın
+            }
+
+            // Bağlama düyməsinə və ya kənar qara fona kliklədikdə bağla
+            if (e.target.classList.contains("close-modal") || e.target === modal) {
+                modal.style.display = "none";
+                document.body.style.overflow = "auto";
+            }
+        });
+    </script>
+
 </body>
 </html>
