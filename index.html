@@ -3,38 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Growth Diary</title>
-<meta name="description" content="Growth Diary - inkişaf yolum, layihələrim və öyrəndiklərim haqqında şəxsi sayt.">
-<meta name="keywords" content="growth diary, inkişaf, layihələr, web sayt, şəxsi sayt">
-<meta name="author" content="Growth Diary">
+    <title>Growth Diary | İnkişaf Yolum</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="container">
 
-        <div class="menu">
-            <a href="index.html" class="active">Ana səhifə</a>
-            <a href="about.html">Haqqında</a>
-            <a href="projects.html">Layihələr</a>
-            <a href="contact.html">Əlaqə</a>
-        </div>
+    <nav class="menu">
+        <a href="index.html" class="active">Ana səhifə</a>
+        <a href="about.html">Haqqında</a>
+        <a href="projects.html">Layihələr</a>
+        <a href="contact.html">Əlaqə</a>
+    </nav>
 
-        <div class="card">
-            <h1>Growth Diary</h1>
-            <p>İnkişafımı, öyrəndiklərimi və qurduğum layihələri topladığım ümumi sayt.</p>
-        </div>
+    <header class="hero">
+        <h1>İnkişaf Yoluna Xoş Gəldiniz</h1>
+        <p>Öyrəndiklərimi, qurduğum layihələri və addım-addım irəliləyişimi burada bölüşürəm.</p>
+        <a href="projects.html" class="btn">Layihələrimə bax</a>
+    </header>
 
-        <div class="card">
-            <h2>Bu sayt nə üçündür?</h2>
-            <p>Bu sayt mənim öyrənmə yolumu, düşündüyüm layihələri və addım-addım inkişafımı bir yerdə toplamaq üçündür.</p>
-        </div>
+    <main class="container">
+        <section class="projects-grid">
+            <div class="project-card">
+                <span class="icon">🚀</span> <div class="project-badge">Hədəf</div>
+                <h3>Məqsədim</h3>
+                <p>Mühəndislik və texnologiya sahəsində biliklərimi dərinləşdirmək və real layihələr yaratmaq.</p>
+            </div>
 
-        <div class="card">
-            <h2>Burada nə var?</h2>
-            <p>Haqqımda qısa məlumat, layihələr bölməsi və əlaqə səhifəsi.</p>
-            <a href="projects.html" class="go-notes">Layihələrə keç</a>
-        </div>
+            <div class="project-card">
+                <span class="icon">📚</span> <div class="project-badge">Məzmun</div>
+                <h3>Nələr var?</h3>
+                <p>Burada mənim laboratoriya təcrübələrim, kodlaşdırma layihələrim və şəxsi bloqum yer alır.</p>
+            </div>
 
-    </div>
+            <div class="project-card">
+                <span class="icon">💻</span> <div class="project-badge">Alətlər</div>
+                <h3>Texnologiyalar</h3>
+                <p>HTML, CSS və gələcəkdə öyrənəcəyim daha mürəkkəb sistemlər üzərinde işləyirəm.</p>
+            </div>
+        </section>
+    </main>
+
 </body>
 </html>

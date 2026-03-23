@@ -3,32 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Əlaqə - Growth Diary</title>
-<meta name="description" content="Growth Diary - inkişaf yolum, layihələrim və öyrəndiklərim haqqında şəxsi sayt.">
-<meta name="keywords" content="growth diary, inkişaf, layihələr, web sayt, şəxsi sayt">
-<meta name="author" content="Growth Diary">
+    <title>Əlaqə | Growth Diary</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="container">
+    <nav class="menu">
+        <a href="index.html">Ana səhifə</a>
+        <a href="about.html">Haqqında</a>
+        <a href="projects.html">Layihələr</a>
+        <a href="contact.html" class="active">Əlaqə</a>
+    </nav>
 
-        <div class="menu">
-            <a href="index.html">Ana səhifə</a>
-            <a href="about.html">Haqqında</a>
-            <a href="projects.html">Layihələr</a>
-            <a href="contact.html" class="active">Əlaqə</a>
-        </div>
+    <header class="hero">
+        <h1>Mənimlə Əlaqə</h1>
+        <p>Sualınız, təklifiniz və ya yeni bir layihə ideyanız varsa, mənə yaza bilərsiniz.</p>
+    </header>
 
-        <div class="card">
-            <h1>Əlaqə</h1>
-            <p>Bu səhifə gələcəkdə əlaqə məlumatları və linklər üçün nəzərdə tutulub.</p>
-        </div>
+    <main class="container">
+        <section class="projects-grid">
+            <div class="project-card">
+                <span class="icon">✉️</span>
+                <div class="project-badge">E-poçt</div>
+                <h3>E-mail</h3>
+                <p>nümunə@mail.com</p>
+            </div>
 
-        <div class="card">
-            <h2>Hazırkı vəziyyət</h2>
-            <p>Bu bölmə hələ sadə formadadır və sonradan daha da genişləndiriləcək.</p>
-        </div>
+            <div class="project-card">
+                <span class="icon">📸</span>
+                <div class="project-badge">Sosial Media</div>
+                <h3>Instagram</h3>
+                <p>@istifadəçi_adınız</p>
+            </div>
 
-    </div>
+            <div class="project-card">
+                <span class="icon">🔗</span>
+                <div class="project-badge">Peşəkar</div>
+                <h3>LinkedIn</h3>
+                <p>linkedin.com/in/adiniz</p>
+            </div>
+        </section>
+    </main>
 </body>
 </html>

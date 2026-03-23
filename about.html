@@ -3,37 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Haqqında - Growth Diary</title>
-<meta name="description" content="Growth Diary - inkişaf yolum, layihələrim və öyrəndiklərim haqqında şəxsi sayt.">
-<meta name="keywords" content="growth diary, inkişaf, layihələr, web sayt, şəxsi sayt">
-<meta name="author" content="Growth Diary">
+    <title>Haqqında | Growth Diary</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="container">
+    <nav class="menu">
+        <a href="index.html">Ana səhifə</a>
+        <a href="about.html" class="active">Haqqında</a>
+        <a href="projects.html">Layihələr</a>
+        <a href="contact.html">Əlaqə</a>
+    </nav>
 
-        <div class="menu">
-            <a href="index.html">Ana səhifə</a>
-            <a href="about.html" class="active">Haqqında</a>
-            <a href="projects.html">Layihələr</a>
-            <a href="contact.html">Əlaqə</a>
-        </div>
+    <header class="hero">
+        <h1>Haqqımda</h1>
+        <p>Mən mühəndislik və texnologiyanın kəsişməsində inkişaf etməyə çalışan bir tələbəyəm.</p>
+    </header>
 
-        <div class="card">
-            <h1>Haqqında</h1>
-            <p>Growth Diary öyrənmə və inkişaf yolumu səliqəli şəkildə toplamaq üçün qurduğum sadə və ümumi saytdır.</p>
-        </div>
-
-        <div class="card">
-            <h2>Məqsəd</h2>
-            <p>Yeni şeylər öyrənmək, layihələr qurmaq və onları zamanla daha yaxşı formaya salmaq.</p>
-        </div>
-
-        <div class="card">
-            <h2>İstiqamət</h2>
-            <p>Veb saytlar, texnologiya, şəxsi inkişaf və gələcək layihələr.</p>
-        </div>
-
-    </div>
+    <main class="container">
+        <section class="projects-grid">
+            <div class="project-card">
+                <span class="icon">🎓</span>
+                <div class="project-badge">Təhsil</div>
+                <h3>Qida Mühəndisliyi</h3>
+                <p>Hazırda laboratoriya analizləri, biokimya və mikrobiologiya sahəsində biliklərimi artırıram.</p>
+            </div>
+            <div class="project-card">
+                <span class="icon">🛠️</span>
+                <div class="project-badge">Bacarıqlar</div>
+                <h3>Texniki Biliklər</h3>
+                <p>Veb proqramlaşdırma (HTML/CSS), foto redaktə və brendinq sahələri ilə dərindən maraqlanıram.</p>
+            </div>
+        </section>
+    </main>
 </body>
 </html>

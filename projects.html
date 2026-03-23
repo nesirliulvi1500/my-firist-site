@@ -4,37 +4,48 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Layihələr | Growth Diary</title>
-<meta name="description" content="Growth Diary - inkişaf yolum, layihələrim və öyrəndiklərim haqqında şəxsi sayt.">
-<meta name="keywords" content="growth diary, inkişaf, layihələr, web sayt, şəxsi sayt">
-<meta name="author" content="Growth Diary">
-
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="container">
+    <nav class="menu">
+        <a href="index.html">Ana səhifə</a>
+        <a href="about.html">Haqqında</a>
+        <a href="projects.html" class="active">Layihələr</a>
+        <a href="contact.html">Əlaqə</a>
+    </nav>
 
-        <div class="menu">
-            <a href="index.html">Ana səhifə</a>
-            <a href="about.html">Haqqında</a>
-            <a href="projects.html" class="active">Layihələr</a>
-            <a href="contact.html">Əlaqə</a>
-        </div>
+    <header class="hero">
+        <h1>Layihələrim</h1>
+        <p>Burada üzərində işlədiyim real layihələr və gələcək ideyalarımı paylaşıram.</p>
+    </header>
 
-        <div class="card">
-            <h1>Layihələr</h1>
-            <p>Burada üzərində işlədiyim layihələri paylaşıram.</p>
-        </div>
+    <main class="container">
+        <section class="projects-grid">
+            <div class="project-card">
+                <span class="icon">🌐</span>
+                <div class="project-badge">Tamamlanıb</div>
+                <h3>İlk Saytım</h3>
+                <p>HTML və CSS istifadə edərək qurduğum ilk çoxsəhifəli şəxsi veb-sayt layihəm.</p>
+                <div class="tags"><span>#HTML</span> <span>#CSS</span></div>
+            </div>
 
-        <div class="card">
-            <h2>İlk sayt</h2>
-            <p>HTML və CSS istifadə edərək qurduğum ilk çoxsəhifəli sayt.</p>
-        </div>
+            <div class="project-card">
+                <span class="icon">🧪</span>
+                <div class="project-badge">İdeya</div>
+                <h3>Qida Analizi Bloqu</h3>
+                <p>Laboratoriya təcrübələrimi və mikrobiologiya qeydlərimi paylaşacağım rəqəmsal gündəlik.</p>
+                <div class="tags"><span>#FoodTech</span> <span>#Lab</span></div>
+            </div>
 
-        <div class="card">
-            <h2>Gələcək planlar</h2>
-            <p>Daha funksional saytlar və tətbiqlər hazırlamaq.</p>
-        </div>
-
-    </div>
+            <div class="project-card">
+                <span class="icon">🎨</span>
+                <div class="project-badge">Tezliklə</div>
+                <h3>Məhəmmədi Chickens</h3>
+                <p>Brendin tanıtımı üçün hazırlayacağım xüsusi dizaynlı Landing Page layihəsi.</p>
+                <div class="tags"><span>#Branding</span> <span>#UI</span></div>
+            </div>
+        </section>
+    </main>
 </body>
 </html>
