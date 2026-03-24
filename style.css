@@ -7,11 +7,28 @@
 }
 
 body {
-    background-color: #0f172a; /* Tünd modern fon */
-    color: #f8fafc;
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    padding: 0;
+    
+    /* Arxa Fon Şəkli */
+    background-image: url('electronics_bg.jpg'); /* Şəklin adı buraya */
+    background-size: cover; /* Şəkil bütün ekranı tutsun */
+    background-position: center; /* Mərkəzlənsin */
+    background-attachment: fixed; /* Səhifə skrol olanda şəkil hərəkət etməsin */
+    color: white; /* Yazılar ağ olsun */
     line-height: 1.6;
 }
 
+/* Səhifənin fonunu tündləşdirmək üçün (Yazılar oxunsun deyə) */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-color: rgba(15, 23, 42, 0.85); /* Tünd, şəffaf fon */
+    z-index: -1; /* Məzmunun altında qalsın */
+}
 /* Naviqasiya Menyu */
 .menu {
     display: flex;
@@ -43,46 +60,84 @@ body {
     padding-bottom: 5px;
 }
 
-/* Bəyəndiyiniz o böyük Hero (Giriş) Hissəsi */
 .hero {
+    padding: 60px 20px; /* Yuxarı-aşağı məsafəni 150-dən 60-a saldıq */
     text-align: center;
-    padding: 120px 10%; /* Daha geniş boşluq */
-    background: linear-gradient(to bottom, #1e293b, #0f172a);
-    border-bottom: 1px solid #334155;
+    background: rgba(15, 23, 42, 0.7); /* Şəffaflığı artırdıq */
+    border-bottom: 1px solid rgba(56, 189, 248, 0.2);
+    margin-bottom: 30px;
 }
 
 .hero h1 {
-    font-size: 4rem; /* Daha böyük başlıq */
-    margin-bottom: 25px;
-    color: #f8fafc;
+    font-size: 2.2rem; /* Başlığı bir az kiçiltdik */
+    margin-bottom: 10px;
+    color: #38bdf8;
+    letter-spacing: -1px;
 }
 
 .hero p {
-    font-size: 1.3rem; /* Daha böyük mətn */
+    font-size: 1.1rem;
     color: #94a3b8;
-    max-width: 800px;
-    margin: 0 auto 40px;
+    max-width: 600px;
+    margin: 0 auto;
 }
-
-/* O qəşəng Mavi Düymə */
+/* Əsas Düymə (Mavi - Sənin Sahən) */
 .btn {
     display: inline-block;
-    padding: 15px 40px;
-    background: #38bdf8;
+    padding: 12px 28px;
+    background: linear-gradient(135px, #38bdf8, #0ea5e9);
     color: #0f172a;
     text-decoration: none;
-    border-radius: 10px;
-    font-weight: 600;
-    font-size: 17px;
-    transition: 0.3s;
+    font-weight: 700;
+    border-radius: 8px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(56, 189, 248, 0.2);
 }
 
 .btn:hover {
-    background: #0ea5e9;
-    transform: translateY(-3px);
-    box-shadow: 0 15px 30px rgba(56, 189, 248, 0.2);
+    transform: translateY(-3px); /* Yuxarı qalxma effekti */
+    box-shadow: 0 8px 25px rgba(56, 189, 248, 0.4);
+    filter: brightness(1.1);
 }
 
+.btn:active {
+    transform: translateY(0); /* Klikləyəndə geri basılma */
+}
+
+/* Çərçivəli Düymə (Şəffaf) */
+.btn-outline {
+    display: inline-block;
+    padding: 11px 26px;
+    background: transparent;
+    color: #38bdf8;
+    text-decoration: none;
+    font-weight: 600;
+    border: 2px solid #38bdf8;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.btn-outline:hover {
+    background: rgba(56, 189, 248, 0.1);
+    color: white;
+    border-color: white;
+    box-shadow: 0 0 15px rgba(56, 189, 248, 0.3);
+}
+
+/* Kartların daxilindəki kiçik Teqlər üçün də animasiya */
+.tags span {
+    display: inline-block;
+    transition: 0.3s;
+    cursor: default;
+}
+
+.tags span:hover {
+    background: #38bdf8;
+    color: #0f172a;
+    transform: scale(1.1);
+}
 /* Konteyner və Kartlar (Vizual İkonlarla) */
 .container {
     max-width: 1200px;
@@ -172,6 +227,22 @@ body {
     overflow: auto; /* Məzmun çox olsa, skrol olsun */
     backdrop-filter: blur(5px); /* Müasir bulanıqlıq effekti */
 }
+    #modal-text img {
+    max-height: 300px;
+    object-fit: cover;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+#modal-text h3, #modal-text h4 {
+    color: #38bdf8;
+    margin-top: 20px;
+}
+
+#modal-text p {
+    color: #cbd5e1;
+    line-height: 1.7;
+    margin-bottom: 15px;
+}
 
 /* Modalın Özü (Pəncərə) */
 .modal-content {
@@ -186,6 +257,7 @@ body {
     position: relative;
     box-shadow: 0 20px 50px rgba(0,0,0,0.7);
     animation: zoomIn 0.3s ease; /* Açılış animasiyası */
+   
 }
 
 /* Animasiya */
@@ -235,4 +307,103 @@ body {
     font-size: 16px;
     margin-bottom: 15px;
     line-height: 1.7;
+}
+.section-title {
+    color: #38bdf8;
+    margin-top: 50px;
+    margin-bottom: 25px;
+    font-size: 26px;
+    border-left: 5px solid #38bdf8;
+    padding-left: 15px;
+}
+/* Məqalə daxilindəki düzülüş */
+.article-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+/* Modal daxilindəki məqalə strukturu */
+.article-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 15px;
+    margin-bottom: 25px;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    padding-bottom: 15px;
+}
+
+.article-text {
+    flex: 1;
+    text-align: left;
+}
+
+.article-image {
+    width: 150px; /* Şəklin enini məcburi kiçiltdik */
+    flex-shrink: 0; /* Şəklin sıxılmasının qarşısını alırıq */
+}
+
+.article-image img {
+    width: 150px;
+    height: 100px;
+    object-fit: cover; /* Şəkli deformasiya etmədən kəsir */
+    border-radius: 8px;
+    border: 1px solid #38bdf8;
+}
+
+.article-caption {
+    font-size: 10px;
+    color: #94a3b8;
+    margin-top: 5px;
+    text-align: center;
+}
+
+.article-text {
+    flex: 2; /* Yazı daha çox yer tutur */
+}
+
+.article-image {
+    flex: 1; /* Şəkil daha kiçik və sağda olur */
+}
+
+.article-image img {
+    width: 100%;
+    border-radius: 8px;
+    border: 1px solid #334155;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+}
+
+.article-caption {
+    font-size: 11px;
+    color: #94a3b8;
+    text-align: center;
+    margin-top: 5px;
+}
+
+/* Mobil cihazlarda alt-alta görünsün */
+@media (max-width: 600px) {
+    .article-row { flex-direction: column; }
+    .article-image { order: -1; width: 100%; }
+}
+/* Məqalə daxilindəki şəkilləri mütləq kiçiltmək üçün */
+#modal-text img {
+    width: 120px !important;
+    height: 90px !important;
+    min-width: 120px !important;
+    max-width: 120px !important;
+    object-fit: cover !important;
+    display: inline-block !important;
+    border-radius: 8px;
+    margin-left: 15px;
+}
+
+/* Yazı və şəklin yan-yana durmasını təmin etmək üçün */
+.article-row {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: flex-start !important;
+    justify-content: flex-start !important;
+    margin-bottom: 20px;
+    width: 100%;
 }
