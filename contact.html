@@ -1,48 +1,61 @@
 <!DOCTYPE html>
 <html lang="az">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Əlaqə | Growth Diary</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Əlaqə | Tech & Science</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <nav class="menu">
-        <a href="index.html">Ana səhifə</a>
-        <a href="about.html">Haqqında</a>
-        <a href="projects.html">Layihələr</a>
-        <a href="contact.html" class="active">Əlaqə</a>
-    </nav>
 
-    <header class="hero">
-        <h1>Mənimlə Əlaqə</h1>
-        <p>Sualınız, təklifiniz və ya yeni bir layihə ideyanız varsa, mənə yaza bilərsiniz.</p>
-    </header>
+  <nav>
+    <div class="nav-logo">Tech<span>&</span>Science</div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Ana Səhifə</a></li>
+      <li><a href="about.html">Haqqımızda</a></li>
+      <li><a href="projects.html">Layihələr</a></li>
+      <li><a href="contact.html" class="active">Əlaqə</a></li>
+    </ul>
+    <div class="hamburger" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </div>
+  </nav>
 
-    <main class="container">
-        <section class="projects-grid">
-            <div class="project-card">
-                <span class="icon">✉️</span>
-                <div class="project-badge">E-poçt</div>
-                <h3>E-mail</h3>
-                <p>nümunə@mail.com</p>
-            </div>
+  <section>
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">Əlaqə</span>
+        <h2>Bizimlə əlaqə saxla</h2>
+        <p>Layihə təklifi, əməkdaşlıq və ya sadəcə salam üçün yaz.</p>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-card">
+          <div class="icon">✉️</div>
+          <h3>E-mail</h3>
+          <a href="mailto:numune@mail.com">numune@mail.com</a>
+        </div>
+        <div class="contact-card">
+          <div class="icon">📸</div>
+          <h3>Instagram</h3>
+          <a href="[instagram.com](https://instagram.com/istifadeci)" target="_blank">@istifadəçi_adınız</a>
+        </div>
+        <div class="contact-card">
+          <div class="icon">🔗</div>
+          <h3>LinkedIn</h3>
+          <a href="[linkedin.com](https://linkedin.com/in/adiniz)" target="_blank">linkedin.com/in/adiniz</a>
+        </div>
+      </div>
+    </div>
+  </section>
 
-            <div class="project-card">
-                <span class="icon">📸</span>
-                <div class="project-badge">Sosial Media</div>
-                <h3>Instagram</h3>
-                <p>@istifadəçi_adınız</p>
-            </div>
+  <footer>
+    <p>© 2024 <span>Tech & Science</span> — Bütün hüquqlar qorunur.</p>
+  </footer>
 
-            <div class="project-card">
-                <span class="icon">🔗</span>
-                <div class="project-badge">Peşəkar</div>
-                <h3>LinkedIn</h3>
-                <p>linkedin.com/in/adiniz</p>
-            </div>
-        </section>
-    </main>
+  <script>
+    function toggleMenu() {
+      document.getElementById('navLinks').classList.toggle('open');
+    }
+  </script>
 </body>
 </html>

@@ -1,63 +1,95 @@
 <!DOCTYPE html>
 <html lang="az">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tech & Science Portfolio | Ana Səhifə</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tech & Science Portfolio | Ana Səhifə</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-    <nav class="menu">
-        <a href="index.html" class="active">Ana səhifə</a>
-        <a href="about.html">Haqqımızda</a>
-        <a href="projects.html">Layihələr</a>
-        <a href="contact.html">Əlaqə</a>
-    </nav>
+  <!-- NAVBAR -->
+  <nav>
+    <div class="nav-logo">Tech<span>&</span>Science</div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html" class="active">Ana Səhifə</a></li>
+      <li><a href="about.html">Haqqımızda</a></li>
+      <li><a href="projects.html">Layihələr</a></li>
+      <li><a href="contact.html">Əlaqə</a></li>
+    </ul>
+    <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </div>
+  </nav>
 
-   <header class="hero">
-    <h1>Tech & Science</h1>
-    <p>Elektronika və Qida Mühəndisliyi Portfoliomuz</p>
-</header>
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-bg" style="background-image:url('circuit.jpg')"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <div class="hero-badge">⚡ Texnologiya · Elm · İnnovasiya</div>
+      <h1>Texnologiyanın gücü <br><span class="highlight">elmin dəqiqliyi ilə</span></h1>
+      <p>Hardware, Software və Qida Mühəndisliyi sahəsindəki işlərimizi bir araya gətirən müasir portfolio.</p>
+      <div class="hero-btns">
+        <a href="projects.html" class="btn btn-primary">Layihələrə bax →</a>
+        <a href="about.html" class="btn btn-outline">Biz kimik?</a>
+      </div>
+    </div>
+  </div>
 
-    <main class="container">
-        <section class="projects-grid">
-            
-            <div class="project-card" style="border-bottom: 4px solid #38bdf8;">
-                <span class="icon">🔌</span>
-                <h3>Hardware & IoT</h3>
-                <p>ESP32 sistemləri, dəqiq lehimləmə texnikası və ağıllı cihazların proqramlaşdırılması.</p>
-                <div style="font-size: 12px; color: #38bdf8; margin-top: 10px; font-weight: bold;">ELEKTRONİKA MÜTƏXƏSSİSİ</div>
-            </div>
-            
-            <div class="project-card" style="border-bottom: 4px solid #10b981;">
-                <span class="icon">🔬</span>
-                <h3>Food Engineering</h3>
-                <p>Həsənli Zərrin tərəfindən aparılan laboratoriya analizləri, mikrobiologiya və qida təhlükəsizliyi.</p>
-                <div style="font-size: 12px; color: #10b981; margin-top: 10px; font-weight: bold;">QİDA MÜHƏNDİSİ</div>
-            </div>
-
-            <div class="project-card" style="border-bottom: 4px solid #f59e0b;">
-                <span class="icon">📱</span>
-                <h3>Smart Solutions</h3>
-                <p>Məlumatların izlənilməsi üçün mobil tətbiqlərin (App) hazırlanması və sistem inteqrasiyası.</p>
-                <div style="font-size: 12px; color: #f59e0b; margin-top: 10px; font-weight: bold;">DEVELOPMENT</div>
-            </div>
-
-        </section>
-
-        <div style="margin-top: 60px; text-align: center; background: rgba(30, 41, 59, 0.4); padding: 40px; border-radius: 20px; border: 1px solid #1e293b;">
-            <h2 style="color: #38bdf8; margin-bottom: 15px;">Niyə Bu Platforma?</h2>
-            <p style="max-width: 800px; margin: 0 auto; color: #cbd5e1; line-height: 1.8;">
-                Biz texnologiyanın gücünü elmin dəqiqliyi ilə birləşdiririk. Bu portfolio həm hardware (elektronika), həm software (proqram təminatı), həm də qida elmi sahəsindəki çalışmalarımızı bir araya gətirən müasir bir laboratoriya qeydidir.
-            </p>
+  <!-- XİDMƏTLƏR -->
+  <section>
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">Sahələrimiz</span>
+        <h2>Nə ilə məşğuluq?</h2>
+        <p>Elektronikadan qida laboratoriyasına qədər geniş spektrdə fəaliyyət göstəririk.</p>
+      </div>
+      <div class="cards-grid">
+        <div class="card">
+          <div class="card-icon">🔌</div>
+          <h3>Hardware & IoT</h3>
+          <p>ESP32 sistemləri, dəqiq lehimləmə texnikası və ağıllı cihazların proqramlaşdırılması.</p>
         </div>
-    </main>
+        <div class="card">
+          <div class="card-icon">🔬</div>
+          <h3>Qida Mühəndisliyi</h3>
+          <p>Laboratoriya analizləri, mikrobiologiya və qida təhlükəsizliyi tədqiqatları.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">📱</div>
+          <h3>Smart Solutions</h3>
+          <p>Məlumatların izlənilməsi üçün mobil tətbiqlərin hazırlanması və sistem inteqrasiyası.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <footer style="margin-top: 80px; padding: 40px; text-align: center; border-top: 1px solid #1e293b; color: #64748b; font-size: 14px;">
-        <p>&copy; 2026 Tech & Science Portfolio. Bütün hüquqlar qorunur.</p>
-    </footer>
+  <!-- FOTO QALEREYASİ -->
+  <section style="background: var(--bg-secondary);">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">Laboratoriya</span>
+        <h2>Sahədən görüntülər</h2>
+      </div>
+      <div class="gallery">
+        <img src="lab1.jpg" alt="Laboratoriya analizləri" />
+        <img src="lab2.jpg" alt="Kimyəvi proseslər" />
+        <img src="lab3.jpg" alt="Titrasiya" />
+        <img src="lab4.jpg" alt="Nümunə saxlama" />
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2024 <span>Tech & Science</span> — Bütün hüquqlar qorunur.</p>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      document.getElementById('navLinks').classList.toggle('open');
+    }
+  </script>
 
 </body>
 </html>

@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Reaktivlərin Hazırlanması və Titrləmə | Tech & Science</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .article-hero {
+      width: 100%;
+      height: 420px;
+      object-fit: cover;
+      border-radius: 0;
+      display: block;
+    }
+
+    .article-body {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 3rem 2rem 5rem;
+    }
+
+    .article-meta {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      padding: 1.5rem 0;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 2.5rem;
+    }
+
+    .article-meta span {
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+
+    .article-meta .dot {
+      color: var(--border);
+    }
+
+    .article-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      line-height: 1.25;
+      margin-bottom: 1rem;
+    }
+
+    .article-lead {
+      font-size: 1.1rem;
+      color: var(--text-secondary);
+      line-height: 1.8;
+      margin-bottom: 2.5rem;
+      padding-bottom: 2.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .article-section {
+      margin-bottom: 3rem;
+    }
+
+    .article-section h2 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .article-section h2::before {
+      content: '';
+      display: inline-block;
+      width: 4px;
+      height: 1.2em;
+      background: linear-gradient(180deg, var(--accent-orange), var(--accent-blue));
+      border-radius: 2px;
+      flex-shrink: 0;
+    }
+
+    .article-section p {
+      color: var(--text-secondary);
+      line-height: 1.9;
+      font-size: 1rem;
+    }
+
+    .article-img {
+      width: 100%;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      margin: 2rem 0;
+      object-fit: cover;
+      max-height: 480px;
+    }
+
+    .img-caption {
+      text-align: center;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-top: -1.2rem;
+      margin-bottom: 2rem;
+    }
+
+    .article-photo-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin: 2rem 0;
+    }
+
+    .article-photo-grid img {
+      width: 100%;
+      height: 280px;
+      object-fit: cover;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      transition: all var(--transition);
+    }
+
+    .article-photo-grid img:hover {
+      border-color: rgba(249,115,22,0.4);
+      transform: scale(1.02);
+    }
+
+    .highlight-box {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--accent-orange);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      padding: 1.5rem;
+      margin: 2rem 0;
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+      line-height: 1.8;
+    }
+
+    .article-footer-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 4rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
+    }
+
+    @media (max-width: 768px) {
+      .article-hero { height: 260px; }
+      .article-photo-grid { grid-template-columns: 1fr; }
+      .article-photo-grid img { height: 220px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="nav-logo">Tech<span>&</span>Science</div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Ana Səhifə</a></li>
+      <li><a href="about.html">Haqqımızda</a></li>
+      <li><a href="projects.html" class="active">Layihələr</a></li>
+      <li><a href="contact.html">Əlaqə</a></li>
+    </ul>
+    <div class="hamburger" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </div>
+  </nav>
+
+  <!-- HERO ŞƏKİL -->
+  <img src="article1_hero.jpg" alt="Laboratoriya nümunələri" class="article-hero" />
+
+  <div class="article-body">
+
+    <!-- GERİ + TEQLƏR -->
+    <a href="projects.html" style="
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      margin-bottom: 1.5rem;
+    ">← Layihələrə qayıt</a>
+
+    <div style="display:flex; gap:0.5rem; flex-wrap:wrap; margin-bottom:1rem;">
+      <span class="tag">#FoodScience</span>
+      <span class="tag">#Titration</span>
+      <span class="tag">#pH</span>
+      <span class="tag">#AzTU</span>
+    </div>
+
+    <!-- BAŞLIQ -->
+    <h1 class="article-title">Reaktivlərin Hazırlanması və Titrləmə</h1>
+
+    <div class="article-meta">
+      <span>🔬 Həsənli Zərrin</span>
+      <span class="dot">·</span>
+      <span>AzTU — Qida Mühəndisliyi</span>
+      <span class="dot">·</span>
+      <span>📅 2024</span>
+    </div>
+
+    <!-- GİRİŞ -->
+    <p class="article-lead">
+      Qida analitikasının ən fundamental mərhələlərindən biri reaktivlərin düzgün 
+      hazırlanması və titrləmə prosesinin dəqiq aparılmasıdır. Bu tədqiqatda müxtəlif 
+      konsentrasiyalı məhlulların hazırlanması, indikatorlardan istifadə və pH 
+      müəyyənləşdirilməsi prosesi ətraflı şəkildə araşdırılmışdır.
+    </p>
+
+    <!-- BÖLMƏ 1 -->
+    <div class="article-section">
+      <h2>Reaktivlərin Hazırlanması</h2>
+      <p>
+        Analiz prosesinin ilk mərhələsində müxtəlif konsentrasiyalı məhlullar 
+        hazırlanır. Bu iş zamanı indikatorlardan istifadə olunur — onlar məhlulun 
+        kimyəvi xüsusiyyətlərini vizual olaraq ortaya qoyur. Hər bir reaktiv 
+        laboratoriya standartlarına uyğun ölçülür, çəkilir və steril şəraitdə 
+        qarışdırılır.
+      </p>
+    </div>
+
+    <!-- ŞƏKİL CÜTLƏRİ -->
+    <div class="article-photo-grid">
+      <img src="article1_photo1.jpg" alt="Nümunə şüşəsi 1" />
+      <img src="article1_photo2.jpg" alt="Nümunə şüşəsi 2" />
+    </div>
+    <p class="img-caption">Fərqli konsentrasiyalarda hazırlanmış nümunə məhlulları — steril sınaq şüşələrində saxlanılır</p>
+
+    <!-- BÖLMƏ 2 -->
+    <div class="article-section">
+      <h2>Qırmızı Kələm İndikatorunun Tətbiqi</h2>
+      <p>
+        Təcrübədə qırmızı kələm ekstraktı indikator kimi tətbiq edilərək mühitin 
+        pH səviyyəsi təyin edilmişdir. Qırmızı kələm antosiyaninlər ehtiva etdiyindən 
+        pH dəyişikliklərinə son dərəcə həssas reaksiya verir: turşu mühitdə qırmızı-çəhrayı, 
+        neytral mühitdə bənövşəyi, qələvi mühitdə isə yaşıl-sarı rəng alır.
+      </p>
+    </div>
+
+    <div class="highlight-box">
+      💡 <strong>Elmi qeyd:</strong> Qırmızı kələm (Brassica oleracea) ekstraktından 
+      hazırlanan təbii indikator, sintetik indikatorlara münasib alternativ kimi 
+      laboratoriya praktikasında getdikcə daha geniş tətbiq tapır. pH aralığı 
+      2-dən 12-yə qədər fərqli rəng çalarları ilə əks olunur.
+    </div>
+
+    <!-- BÖLMƏ 3 -->
+    <div class="article-section">
+      <h2>Mikrobioloji Təhlükəsizlik və Yekun</h2>
+      <p>
+        Hazırlanmış nümunələr steril şəraitdə saxlanılmış və analiz edilmişdir. 
+        Aparılan tədqiqat nəticəsində qida mühitində zərərli mikroorqanizmlərin 
+        inkişaf riski minimuma endirilmişdir. Qırmızı kələm indikatoru ilə aparılan 
+        pH təyini nəticələrin etibarlılığını əhəmiyyətli dərəcədə artırmışdır.
+      </p>
+      <p style="margin-top:1rem;">
+        Bu yanaşma qida təhlükəsizliyinin təmin olunması baxımından mühüm əhəmiyyət 
+        daşıyır. Düzgün pH nəzarəti qidanın raf ömrünü uzatmaqla yanaşı, istehlakçı 
+        sağlamlığını da qoruyur.
+      </p>
+    </div>
+
+    <!-- NƏTİCƏ QUTUSU -->
+    <div style="
+      background: linear-gradient(135deg, rgba(249,115,22,0.08), rgba(59,130,246,0.08));
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 2rem;
+      margin-top: 2rem;
+    ">
+      <h3 style="
+        font-family: 'Space Grotesk', sans-serif;
+        font-size: 1rem;
+        font-weight: 600;
+        margin-bottom: 0.8rem;
+        color: var(--accent-orange);
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-size: 0.8rem;
+      ">Tədqiqatın Əsas Nəticələri</h3>
+      <ul style="
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 0.6rem;
+        color: var(--text-secondary);
+        font-size: 0.95rem;
+      ">
+        <li>✅ Reaktivlər standarta uyğun hazırlanmış və dəqiq titrləmə aparılmışdır</li>
+        <li>✅ Qırmızı kələm indikatoru pH təyinini uğurla həyata keçirmişdir</li>
+        <li>✅ Nümunələr steril saxlanılmış, mikrobioloji risk sıfıra endirilmişdir</li>
+        <li>✅ Metod qida təhlükəsizliyi standartlarına tam uyğundur</li>
+      </ul>
+    </div>
+
+    <!-- ALT NAVİQASİYA -->
+    <div class="article-footer-nav">
+      <a href="projects.html" class="btn btn-outline">← Layihələrə qayıt</a>
+      <a href="article2.html" class="btn btn-primary">Növbəti məqalə →</a>
+    </div>
+
+  </div>
+
+  <footer>
+    <p>© 2024 <span>Tech & Science</span> — Bütün hüquqlar qorunur.</p>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      document.getElementById('navLinks').classList.toggle('open');
+    }
+  </script>
+
+</body>
+</html>

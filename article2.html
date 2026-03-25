@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>pH İndikatorları və Qida Təhlükəsizliyi | Tech & Science</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .article-hero {
+      width: 100%;
+      height: 420px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .article-body {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 3rem 2rem 5rem;
+    }
+
+    .article-meta {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      padding: 1.5rem 0;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 2.5rem;
+    }
+
+    .article-meta .dot { color: var(--border); }
+
+    .article-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      line-height: 1.25;
+      margin-bottom: 1rem;
+    }
+
+    .article-lead {
+      font-size: 1.1rem;
+      color: var(--text-secondary);
+      line-height: 1.8;
+      margin-bottom: 2.5rem;
+      padding-bottom: 2.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .article-section {
+      margin-bottom: 3rem;
+    }
+
+    .article-section h2 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .article-section h2::before {
+      content: '';
+      display: inline-block;
+      width: 4px;
+      height: 1.2em;
+      background: linear-gradient(180deg, var(--accent-orange), var(--accent-blue));
+      border-radius: 2px;
+      flex-shrink: 0;
+    }
+
+    .article-section p {
+      color: var(--text-secondary);
+      line-height: 1.9;
+      font-size: 1rem;
+    }
+
+    .article-img {
+      width: 100%;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      margin: 2rem 0;
+      object-fit: cover;
+      max-height: 500px;
+    }
+
+    .img-caption {
+      text-align: center;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-top: -1.2rem;
+      margin-bottom: 2rem;
+    }
+
+    .article-photo-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin: 2rem 0;
+    }
+
+    .article-photo-grid img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      transition: all var(--transition);
+    }
+
+    .article-photo-grid img:hover {
+      border-color: rgba(249,115,22,0.4);
+      transform: scale(1.02);
+    }
+
+    .article-photo-full img {
+      width: 100%;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      margin: 2rem 0;
+      max-height: 500px;
+      object-fit: cover;
+      transition: all var(--transition);
+    }
+
+    .article-photo-full img:hover {
+      border-color: rgba(249,115,22,0.4);
+    }
+
+    .highlight-box {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--accent-blue);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      padding: 1.5rem;
+      margin: 2rem 0;
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+      line-height: 1.8;
+    }
+
+    .ph-scale {
+      display: flex;
+      gap: 0;
+      border-radius: var(--radius);
+      overflow: hidden;
+      margin: 2rem 0;
+      height: 48px;
+    }
+
+    .ph-scale div {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: rgba(255,255,255,0.9);
+    }
+
+    .article-footer-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 4rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
+    }
+
+    @media (max-width: 768px) {
+      .article-hero { height: 260px; }
+      .article-photo-grid {
+        grid-template-columns: 1fr;
+      }
+      .article-photo-grid img { height: 220px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="nav-logo">Tech<span>&</span>Science</div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Ana Səhifə</a></li>
+      <li><a href="about.html">Haqqımızda</a></li>
+      <li><a href="projects.html" class="active">Layihələr</a></li>
+      <li><a href="contact.html">Əlaqə</a></li>
+    </ul>
+    <div class="hamburger" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </div>
+  </nav>
+
+  <!-- HERO ŞƏKİL -->
+  <img src="article2_hero.jpg" alt="Rəngli pH indikatorları" class="article-hero" />
+
+  <div class="article-body">
+
+    <a href="projects.html" style="
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      margin-bottom: 1.5rem;
+    ">← Layihələrə qayıt</a>
+
+    <div style="display:flex; gap:0.5rem; flex-wrap:wrap; margin-bottom:1rem;">
+      <span class="tag">#FoodSafety</span>
+      <span class="tag">#pH</span>
+      <span class="tag">#Microbiology</span>
+      <span class="tag">#Analysis</span>
+    </div>
+
+    <h1 class="article-title">pH İndikatorları ilə Qida Analizi və Mikrobioloji Təhlükəsizlik</h1>
+
+    <div class="article-meta">
+      <span>🔬 Həsənli Zərrin</span>
+      <span class="dot">·</span>
+      <span>AzTU — Qida Mühəndisliyi</span>
+      <span class="dot">·</span>
+      <span>📅 2024</span>
+    </div>
+
+    <p class="article-lead">
+      Qidanın kimyəvi tərkibini və mikrobioloji təhlükəsizliyini müəyyən etmək 
+      üçün pH analizinin rolu danılmazdır. Bu tədqiqatda rəngli indikatorlardan 
+      istifadə edərək qida nümunələrinin turşuluq balansı təyin edilmiş, eyni 
+      zamanda maqnit qarışdırıcılı qızdırıcılarla istilik müalicəsi aparılmışdır.
+    </p>
+
+    <!-- BÖLMƏ 1 -->
+    <div class="article-section">
+      <h2>Rəngli İndikatorlarla pH Analizi</h2>
+      <p>
+        Analiz prosesinin ilkin mərhələsi müxtəlif konsentrasiyalı məhlulların 
+        hazırlanmasından ibarətdir. Şəkildə gördüyünüz rəngli indikatorlar — 
+        çəhrayıdan sarıya qədər dəyişən spektr — qidanın turşuluq balansını və 
+        tərkibindəki üzvi turşuların miqdarını vizual olaraq göstərir. Bu metod 
+        məhsulun raf ömrünü öncədən proqnozlaşdırmağa imkan verir.
+      </p>
+    </div>
+
+    <!-- RƏNGLİ İNDİKATORLAR ŞƏKLİ -->
+    <div class="article-photo-full">
+      <img src="article2_photo1.jpg" alt="Rəngli pH indikator məhlulları" />
+    </div>
+    <p class="img-caption">Müxtəlif pH dəyərlərinə uyğun rəng spektri — çəhrayıdan sarıya qədər</p>
+
+    <!-- pH SKALASI VİZUALI -->
+    <div class="ph-scale">
+      <div style="background:#e74c3c;">1–2<br>Güclü turşu</div>
+      <div style="background:#e67e22;">3–4<br>Turşu</div>
+      <div style="background:#f1c40f; color:#333;">5–6<br>Zəif turşu</div>
+      <div style="background:#2ecc71;">7<br>Neytral</div>
+      <div style="background:#3498db;">8–9<br>Zəif qələvi</div>
+      <div style="background:#9b59b6;">10–11<br>Qələvi</div>
+      <div style="background:#6c3483;">12–14<br>Güclü qələvi</div>
+    </div>
+    <p class="img-caption" style="margin-top:0.5rem;">pH skalası — indikator rənglərinin pH dəyərləri ilə uyğunluğu</p>
+
+    <!-- BÖLMƏ 2 -->
+    <div class="article-section">
+      <h2>İstilik Müalicəsi və Zülal Analizi</h2>
+      <p>
+        Maqnit qarışdırıcılı qızdırıcılar vasitəsilə nümunələrin sabit temperaturda 
+        emalı həyata keçirilir. Bu mərhələdə qidanın tərkibindəki zülal və 
+        karbohidratların istilik qarşısında verdiyi reaksiyalar müşahidə olunur — 
+        denaturasiya nöqtəsi, Maillard reaksiyası başlama temperaturu və karamelizasiya 
+        həddinin müəyyənləşdirilməsi bu analizin əsas hədəflərindəndir.
+      </p>
+    </div>
+
+    <div class="highlight-box">
+      🌡️ <strong>Kritik qeyd:</strong> Dəqiq temperatur nəzarəti mikrobioloji 
+      təhlükəsizlik üçün əsas şərtdir. Əksər patogen bakteriyalar 70°C-dən yuxarı 
+      temperaturda məhv olur, lakin bəzi sporlar 121°C-ə qədər davamlılıq göstərir. 
+      Bu səbəbdən istilik müalicəsi protokolu hər qida növü üçün ayrıca müəyyənləşdirilir.
+    </div>
+
+    <!-- TİTRASİYA VƏ BƏNÖVŞƏYI MƏHLUL -->
+    <div class="article-photo-grid">
+      <img src="article2_photo2.jpg" alt="Bənövşəyi pH məhlulu" />
+      <img src="article2_photo3.jpg" alt="Titrləmə prosesi" />
+    </div>
+    <p class="img-caption">Solda: neytral pH zonasında bənövşəyi rəng alan indikator məhlulu · Sağda: titrləmə prosesi</p>
+
+    <!-- BÖLMƏ 3 -->
+    <div class="article-section">
+      <h2>Steril Saxlama və Mikrobioloji Nəticələr</h2>
+      <p>
+        Hazırlanmış nümunələr xüsusi sınaq şüşələrində steril şəraitdə saxlanılır. 
+        Aparılan tədqiqatların nəticəsi olaraq qidanın tərkibindəki patogen 
+        mikroorqanizmlərin inkişaf riski sıfıra endirilir. Hər nümunə üçün inkubasiya 
+        müddəti, mühitin temperaturu və pH dəyəri protokola uyğun qeydə alınmışdır.
+      </p>
+      <p style="margin-top:1rem;">
+        Bu elmi yanaşma müasir qida sənayesinin əsas tələblərindən biridir. 
+        Sistemli pH nəzarəti və steril saxlama birlikdə tətbiq edildikdə məhsulun 
+        mikrobioloji keyfiyyəti uzun müddət qorunur.
+      </p>
+    </div>
+
+    <!-- QIZDIRICI ŞƏKLİ -->
+    <div class="article-photo-full">
+      <img src="article2_photo4.jpg" alt="Maqnit qarışdırıcılı qızdırıcı" />
+    </div>
+    <p class="img-caption">Maqnit qarışdırıcılı qızdırıcı ilə sabit temperaturda emal prosesi</p>
+
+    <!-- NƏTİCƏ -->
+    <div style="
+      background: linear-gradient(135deg, rgba(59,130,246,0.08), rgba(249,115,22,0.08));
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 2rem;
+      margin-top: 2rem;
+    ">
+      <h3 style="
+        color: var(--accent-blue);
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-size: 0.8rem;
+        font-weight: 600;
+        margin-bottom: 0.8rem;
+      ">Tədqiqatın Əsas Nəticələri</h3>
+      <ul style="
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 0.6rem;
+        color: var(--text-secondary);
+        font-size: 0.95rem;
+      ">
+        <li>✅ Rəngli indikatorlarla pH dəyərləri dəqiq müəyyənləşdirilmişdir</li>
+        <li>✅ İstilik müalicəsi zamanı zülal və karbohidrat reaksiyaları izlənilmişdir</li>
+        <li>✅ Patogen mikroorqanizmlərin inkişaf riski sıfıra endirilmişdir</li>
+        <li>✅ Metod müasir qida sənayesi standartlarına tam cavab verir</li>
+      </ul>
+    </div>
+
+    <div class="article-footer-nav">
+      <a href="article.html" class="btn btn-outline">← Əvvəlki məqalə</a>
+      <a href="contact.html" class="btn btn-primary">Əlaqə saxla →</a>
+    </div>
+
+  </div>
+
+  <footer>
+    <p>© 2024 <span>Tech & Science</span> — Bütün hüquqlar qorunur.</p>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      document.getElementById('navLinks').classList.toggle('open');
+    }
+  </script>
+
+</body>
+</html>

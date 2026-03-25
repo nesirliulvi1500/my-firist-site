@@ -1,60 +1,93 @@
 <!DOCTYPE html>
 <html lang="az">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Haqqımızda | Tech & Science</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
-    <style>
-        .skills-section { margin-top: 50px; padding: 20px; background: rgba(30, 41, 59, 0.4); border-radius: 15px; }
-        .skill-bar { background: #0f172a; border-radius: 10px; margin-bottom: 20px; padding: 15px; border: 1px solid #334155; }
-        .skill-info { display: flex; justify-content: space-between; margin-bottom: 10px; }
-        .skill-progress { background: #1e293b; height: 10px; border-radius: 5px; overflow: hidden; }
-        .progress-fill { height: 100%; border-radius: 5px; }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Haqqımızda | Tech & Science</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-    <nav class="menu">
-        <a href="index.html">Ana səhifə</a>
-        <a href="about.html" class="active">Haqqımızda</a>
-        <a href="projects.html">Layihələr</a>
-        <a href="contact.html">Əlaqə</a>
-    </nav>
+  <nav>
+    <div class="nav-logo">Tech<span>&</span>Science</div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Ana Səhifə</a></li>
+      <li><a href="about.html" class="active">Haqqımızda</a></li>
+      <li><a href="projects.html">Layihələr</a></li>
+      <li><a href="contact.html">Əlaqə</a></li>
+    </ul>
+    <div class="hamburger" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </div>
+  </nav>
 
-    <header class="hero">
-        <h1>Haqqımızda</h1>
-        <p>Texnologiya və Qida Mühəndisliyi Komandası</p>
-    </header>
-
-    <main class="container">
-        <div class="projects-grid">
-            <div class="project-card" style="border-top: 4px solid #38bdf8;">
-                <span class="icon">🔌</span>
-                <h3>Texniki Yaradıcı</h3>
-                <p>Elektronika, ESP32 və Mobil Tətbiq mütəxəssisi.</p>
-            </div>
-
-            <div class="project-card" style="border-top: 4px solid #10b981;">
-                <span class="icon">🔬</span>
-                <h3>Həsənli Zərrin</h3>
-                <p>AzTU-nun Qida Mühəndisliyi tələbəsi və Laboratoriya analitiki.</p>
-            </div>
+  <!-- KOMANDA -->
+  <section>
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">Komanda</span>
+        <h2>Biz kimik?</h2>
+        <p>Texnologiya və elm arasındaki körpüyü quran iki mütəxəssis.</p>
+      </div>
+      <div class="team-grid">
+        <div class="team-card">
+          <div class="team-avatar">🔌</div>
+          <h3>Texniki Yaradıcı</h3>
+          <div class="role">Hardware & IoT Mütəxəssisi</div>
+          <p>ESP32 sistemləri, dəqiq lehimləmə texnikası və mobil tətbiq inkişafı sahəsində aktiv işlər aparır.</p>
         </div>
-
-        <div class="skills-section">
-            <h3 style="color: #38bdf8; text-align: center; margin-bottom: 20px;">Bacarıqlar</h3>
-            <div class="skill-bar">
-                <div class="skill-info"><span>Hardware & Soldering</span> <span>90%</span></div>
-                <div class="skill-progress"><div class="progress-fill" style="width: 90%; background: #38bdf8;"></div></div>
-            </div>
-            <div class="skill-bar">
-                <div class="skill-info"><span>Qida Mikrobiologiyası</span> <span>85%</span></div>
-                <div class="skill-progress"><div class="progress-fill" style="width: 85%; background: #10b981;"></div></div>
-            </div>
+        <div class="team-card">
+          <div class="team-avatar">🔬</div>
+          <h3>Həsənli Zərrin</h3>
+          <div class="role">Qida Mühəndisliyi · AzTU</div>
+          <p>AzTU-nun Qida Mühəndisliyi tələbəsi. Laboratoriya analizləri və mikrobiologiya sahəsində ixtisaslaşır.</p>
         </div>
-    </main>
+      </div>
+    </div>
+  </section>
 
+  <!-- BACARIQLAR -->
+  <section style="background: var(--bg-secondary);">
+    <div class="container" style="max-width:700px">
+      <div class="section-header">
+        <span class="section-label">Bacarıqlar</span>
+        <h2>Texniki səviyyə</h2>
+      </div>
+      <div class="skill-item">
+        <div class="skill-header">
+          <span>Hardware & Soldering</span><span>90%</span>
+        </div>
+        <div class="skill-bar"><div class="skill-fill" style="width:90%"></div></div>
+      </div>
+      <div class="skill-item">
+        <div class="skill-header">
+          <span>Qida Mikrobiologiyası</span><span>85%</span>
+        </div>
+        <div class="skill-bar"><div class="skill-fill" style="width:85%"></div></div>
+      </div>
+      <div class="skill-item">
+        <div class="skill-header">
+          <span>ESP32 / IoT</span><span>88%</span>
+        </div>
+        <div class="skill-bar"><div class="skill-fill" style="width:88%"></div></div>
+      </div>
+      <div class="skill-item">
+        <div class="skill-header">
+          <span>Flutter / Mobile</span><span>75%</span>
+        </div>
+        <div class="skill-bar"><div class="skill-fill" style="width:75%"></div></div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2024 <span>Tech & Science</span> — Bütün hüquqlar qorunur.</p>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      document.getElementById('navLinks').classList.toggle('open');
+    }
+  </script>
 </body>
 </html>
