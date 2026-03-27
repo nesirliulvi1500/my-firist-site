@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audio VU Metr | Həsənli Zərrin</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-color: #0f172a;
+            --card-bg: #1e293b;
+            --accent: #ef4444;
+            --text-main: #f8fafc;
+            --text-dim: #94a3b8;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            margin: 0;
+            line-height: 1.7;
+        }
+
+        .container { max-width: 900px; margin: 0 auto; padding: 60px 20px; }
+
+        /* Sənin btn-outline stilinə uyğun geri qayıtmaq düyməsi */
+        .btn-back {
+            display: inline-block;
+            border: 1px solid var(--text-dim);
+            color: var(--text-main);
+            padding: 0.5rem 1.2rem;
+            text-decoration: none;
+            font-size: 0.82rem;
+            border-radius: 5px;
+            transition: 0.3s;
+            margin-bottom: 30px;
+        }
+
+        .btn-back:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+            background: rgba(239, 68, 68, 0.05);
+        }
+
+        .header h1 { font-size: 2.2rem; margin-bottom: 0.5rem; color: var(--text-main); }
+        .subtitle { color: var(--accent); font-weight: 600; text-transform: uppercase; letter-spacing: 1px; font-size: 0.9rem; }
+
+        .main-visual {
+            width: 100%;
+            border-radius: 12px;
+            margin: 40px 0;
+            border: 1px solid rgba(255,255,255,0.1);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.5);
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            padding: 25px;
+            border-radius: 12px;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .card h3 { color: var(--accent); margin-top: 0; font-size: 1.2rem; }
+
+        .schematic-wrapper {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .schematic-wrapper img { max-width: 100%; height: auto; }
+    </style>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-99Y4B3V18C"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-99Y4B3V18C');
+</script>
+</head>
+<body>
+
+    <div class="container">
+        <a href="projects.html" class="btn-back" data-aos="fade-right">← Layihələrə Qayıt</a>
+
+        <div class="header" data-aos="fade-up">
+            <span class="subtitle">Mühəndislik Layihəsi</span>
+            <h1>Audio VU Metr Vizuallaşdırıcı</h1>
+            <p style="color: var(--text-dim);">LM358 İnteqralı və Analoq Siqnal Emalı</p>
+        </div>
+
+        <img src="10.jpeg" alt="VU Metr PCB" class="main-visual" data-aos="zoom-in">
+
+        <div class="content-grid">
+            <div class="card" data-aos="fade-up">
+                <h3>Layihənin Mahiyyəti</h3>
+                <p>Bu sistem, audio siqnalların intensivliyini loqarifmik şkala üzrə LED-lərlə göstərir. Dövrənin əsasını təşkil edən <b>LM358 Dual Op-Amp</b> inteqralları gərginlik komparatoru kimi fəaliyyət göstərir.</p>
+            </div>
+
+            <div class="card" data-aos="fade-up" data-aos-delay="100">
+                <h3>Texniki Detallar</h3>
+                <ul style="padding-left: 20px; color: var(--text-dim); font-size: 0.95rem;">
+                    <li><b>İnteqral:</b> 4x LM358 (Analoq Müqayisəedici)</li>
+                    <li><b>Giriş:</b> 500mV - 2V Peak-to-Peak Audio</li>
+                    <li><b>Dövrə Tipi:</b> Gərginlik Bölücü Şəbəkə</li>
+                    <li><b>PCB:</b> Xüsusi dizayn edilmiş birqatlı lövhə</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="card" style="margin-top: 25px;" data-aos="fade-up">
+            <h3>Dövrə Sxemi və İş Prinsipi</h3>
+            <p>Hər bir LED, səs gərginliyinin müəyyən bir həddi (threshold) keçməsi ilə aktivləşir. Sxemdəki rezistorlar hər bir Op-Amp üçün fərqli istinad gərginliyi yaradır.</p>
+            
+            <div class="schematic-wrapper">
+                <img src="1.jpeg" alt="Dövrə Sxemi Analizi">
+                <p style="color: #64748b; font-size: 0.8rem; margin-top: 10px;">Şəkil: LM358 əsaslı komparator dövrəsi</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 800, once: true });
+    </script>
+</body>
+</html>
