@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Radio-Elektronika: Qəbuledici Sxemi</title>
+    <style>
+        :root { --radio-red: #dc2626; --bg: #0b0f1a; --text: #e2e8f0; }
+        body { background: var(--bg); color: var(--text); font-family: 'Segoe UI', sans-serif; padding: 20px; line-height: 1.6; }
+        .container { max-width: 850px; margin: 0 auto; }
+        h1 { color: var(--radio-red); border-bottom: 2px solid var(--radio-red); padding-bottom: 10px; }
+        
+        .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin: 25px 0; }
+        .gallery img { width: 100%; border-radius: 8px; border: 1px solid #334155; }
+
+        .component-box { background: #1e293b; padding: 20px; border-radius: 12px; margin-top: 30px; border-left: 5px solid var(--radio-red); }
+        .component-list { display: flex; flex-wrap: wrap; gap: 10px; list-style: none; padding: 0; }
+        .component-list li { background: #334155; padding: 5px 12px; border-radius: 6px; font-size: 0.9rem; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <a href="projects.html" style="color: #38bdf8; text-decoration: none;">← Layihələrə Qayıt</a>
+    
+    <h1>Radio-Elektronika: Qəbuledici Qurğunun Yığılması</h1>
+    
+    <p>Bu məqalədə klassik analoq radio qəbuledicisinin yığılma prosesi və istifadə olunan elektron komponentlərin funksiyaları izah olunur.</p>
+
+    <div class="gallery">
+        <img src="1.jpeg" alt="Sxem mərhələsi">
+        <img src="2.jpeg" alt="Lehimləmə">
+        <img src="3.jpeg" alt="Komponentlər">
+        <img src="4.jpeg" alt="Yekun">
+    </div>
+
+    <div class="component-box">
+        <h2>📦 İstifadə Olunan Komponentlər</h2>
+        <ul class="component-list">
+            <li>Ferrit Anten</li>
+            <li>Dəyişən Kondensator (Tuning)</li>
+            <li>Elektrolit Kondensatorlar</li>
+            <li>Rezistorlar</li>
+            <li>Potensiometr</li>
+            <li>Dinamik (8 Ohm)</li>
+            <li>Tranzistorlar / Gücləndirici IC</li>
+        </ul>
+    </div>
+
+    <div style="margin-top: 30px; background: rgba(255,255,255,0.05); padding: 20px; border-radius: 12px;">
+        <h2>🛠️ Texniki Proses</h2>
+        <p>Radio dalğalarının qəbulu ferrit anten və dəyişən kondensatordan ibarət olan rəqs konturu vasitəsilə həyata keçirilir. Seçilmiş tezlik gücləndirici mərhələyə ötürülür və burada zəif siqnal dinamiki işlədə biləcək səviyyəyə qədər artırılır.</p>
+    </div>
+
+    <div class="gallery">
+        <img src="5.jpeg" alt="Detallar">
+        <img src="6.jpeg" alt="Hazır vəziyyət">
+        <img src="11.jpeg" alt="Yoxlanış">
+    </div>
+
+</div>
+
+</body>
+</html>
