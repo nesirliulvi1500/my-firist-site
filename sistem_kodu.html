@@ -1,0 +1,179 @@
+
+ <p>import cv2
+import mediapipe as mp
+import numpy as np
+import random
+import math
+
+# ==========================================
+# 1. KONFİQURASİYA VƏ INITIALİZASİYA
+# ==========================================
+W, H = 1280, 720
+
+mp_hands = mp.solutions.hands
+mp_draw  = mp.solutions.drawing_utils
+hands    = mp_hands.Hands(
+    max_num_hands=2,
+    min_detection_confidence=0.7,
+    min_tracking_confidence=0.65
+)
+
+# ==========================================
+# 2. FİZİKA SİSTEMİ: ALOV VƏ KÖZ HİSSƏCİKLƏRİ
+# ==========================================
+class Particle:
+    """ Alovun hər bir kiçik hissəciyinin hərəkət və rəng məntiqi """
+    def __init__(self, x, y, intensity=1.0):
+        self.x   = x + random.uniform(-15, 15)
+        self.y   = y + random.uniform(-5, 5)
+        self.vx  = random.uniform(-1.5, 1.5) * intensity
+        self.vy  = random.uniform(-6, -2)    * intensity
+        self.life     = random.uniform(0.6, 1.0)
+        self.decay    = random.uniform(0.012, 0.025)
+        self.size     = random.uniform(6, 18)  * intensity
+        self.type     = random.choice(["core", "ember", "smoke"])
+
+    def update(self, wind_x=0.0):
+        self.vy  *= 0.97
+        self.vx  += wind_x * 0.05 + random.uniform(-0.3, 0.3)
+        self.vx  *= 0.98
+        self.x   += self.vx
+        self.y   += self.vy
+        self.size = max(self.size - 0.15, 1)
+        self.life -= self.decay
+
+    @property
+    def alive(self):
+        return self.life > 0
+
+    def color(self):
+        t = max(self.life, 0)
+        if self.type == "smoke":
+            g = int(80 * t)
+            return (g, g, g)
+        elif self.type == "ember":
+            return (0, int(200 * t), 255) # Sarıdan qırmızıya
+        else:
+            # Alovun istilik rəng keçidi (Ağ -> Sarı -> Narıncı -> Qara)
+            if t > 0.7: return (int(200 * (t - 0.7) / 0.3), 255, 255)
+            elif t > 0.4: return (0, int(180 * (t - 0.4) / 0.3), 255)
+            elif t > 0.15: return (0, 0, int(255 * (t - 0.15) / 0.25))
+            else:
+                v = int(40 * t / 0.15)
+                return (v, v, v)
+
+class Ember:
+    """ Havada uçuşan parlaq köz hissəcikləri """
+    def __init__(self, x, y):
+        self.x, self.y = x + random.uniform(-20, 20), y
+        self.vx, self.vy = random.uniform(-3, 3), random.uniform(-8, -4)
+        self.life, self.decay = random.uniform(0.5, 1.0), random.uniform(0.008, 0.02)
+        self.size = random.uniform(2, 5)
+
+    def update(self):
+        self.vx += random.uniform(-0.2, 0.2)
+        self.vy += 0.05
+        self.x += self.vx
+        self.y += self.vy
+        self.life -= self.decay
+
+    @property
+    def alive(self): return self.life > 0
+
+    def color(self):
+        return (0, int(255*self.life), 255) if self.life > 0.5 else (0, 0, int(200*self.life))
+
+# ==========================================
+# 3. KÖMƏKÇİ FUNKSİYALAR (GESTURE & VIZUAL)
+# ==========================================
+def get_gesture(lm):
+    """ Barmaqların vəziyyətini təyin edir """
+    tips = [8, 12, 16, 20]
+    fingers = [lm[t].y < lm[t-2].y for t in tips]
+    cx = np.mean([lm[i].x for i in [0,5,9,13,17]])
+    cy = np.mean([lm[i].y for i in [0,5,9,13,17]])
+    return {"fist": sum(fingers) == 0, "open": sum(fingers) >= 3, 
+            "count": sum(fingers), "cx": cx, "cy": cy}
+
+def render_effects(canvas, particles, embers):
+    """ Alova blur (yumşaqlıq) verərək ekrana çəkir """
+    fire_layer = np.zeros((H, W, 3), dtype=np.float32)
+    for p in particles:
+        if p.alive:
+            cv2.circle(fire_layer, (int(p.x), int(p.y)), int(p.size), p.color(), -1)
+    
+    # Realistik alov effekti üçün blur layering
+    fire_layer = cv2.GaussianBlur(fire_layer, (21, 21), 8)
+    fire_layer = np.clip(fire_layer * 1.6, 0, 255).astype(np.uint8)
+
+    for e in embers:
+        if e.alive:
+            cv2.circle(fire_layer, (int(e.x), int(e.y)), int(e.size), e.color(), -1)
+
+    # Görüntüləri Screen Blend metodu ilə birləşdirir
+    blended = 255 - ((255 - canvas.astype(np.float32)) * (255 - fire_layer.astype(np.float32)) / 255)
+    return np.clip(blended, 0, 255).astype(np.uint8)
+
+def draw_lightning(canvas, p1, p2, depth=0):
+    """ İki əl arasında elektrik qövsü yaradır """
+    if depth > 5: return
+    mid = ((p1[0]+p2[0])//2 + random.randint(-30, 30), (p1[1]+p2[1])//2 + random.randint(-30, 30))
+    cv2.line(canvas, p1, mid, (255, 180, 200), max(3-depth, 1), cv2.LINE_AA)
+    cv2.line(canvas, mid, p2, (255, 180, 200), max(3-depth, 1), cv2.LINE_AA)
+    draw_lightning(canvas, p1, mid, depth+1)
+    draw_lightning(canvas, mid, p2, depth+1)
+
+# ==========================================
+# 4. ANA DÖNGÜ (MAIN LOOP)
+# ==========================================
+def main():
+    cap = cv2.VideoCapture(0)
+    cap.set(3, W); cap.set(4, H)
+    particles, embers = [], []
+
+    while cap.isOpened():
+        success, frame = cap.read()
+        if not success: break
+
+        frame = cv2.flip(frame, 1)
+        res = hands.process(cv2.cvtColor(frame, cv2.COLOR_BGR2RGB))
+        
+        # Arxa fonu qaraldırıq ki, alov parlasın
+        canvas = cv2.addWeighted(np.zeros((H, W, 3), np.uint8), 1.0, frame, 0.2, 0)
+        hand_data = []
+
+        if res.multi_hand_landmarks:
+            for hand_lm in res.multi_hand_landmarks:
+                g = get_gesture(hand_lm.landmark)
+                hand_data.append(g)
+                px, py = int(g["cx"] * W), int(g["cy"] * H)
+
+                if g["fist"]: # GÜCLÜ ALOV
+                    for _ in range(15): particles.append(Particle(px, py, 1.0))
+                    if random.random() < 0.2: embers.append(Ember(px, py))
+                elif g["open"]: # ZƏİF ALOV
+                    for _ in range(5): particles.append(Particle(px, py, 0.5))
+
+        if len(hand_data) == 2: # ŞİMŞƏK REJİMİ
+            p1 = (int(hand_data[0]["cx"]*W), int(hand_data[0]["cy"]*H))
+            p2 = (int(hand_data[1]["cx"]*W), int(hand_data[1]["cy"]*H))
+            if math.hypot(p1[0]-p2[0], p1[1]-p2[1]) < 400:
+                draw_lightning(canvas, p1, p2)
+
+        # Hissəcikləri yenilə və təmizlə
+        particles = [p for p in particles if p.alive]
+        embers = [e for e in embers if e.alive]
+        for p in particles: p.update()
+        for e in embers: e.update()
+
+        # Ekrana çıxar
+        final_img = render_effects(canvas, particles, embers)
+        cv2.imshow("AI Fire Controller", final_img)
+        
+        if cv2.waitKey(1) & 0xFF == ord('q'): break
+
+    cap.release()
+    cv2.destroyAllWindows()
+
+if __name__ == "__main__":
+    main()</p>
