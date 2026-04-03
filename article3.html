@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Titrasiya: Dəqiq Analiz Metodu | Tech & Science</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .article-hero {
+      width: 100%;
+      height: 420px;
+      object-fit: cover;
+      border-radius: 0;
+      display: block;
+    }
+
+    .article-body {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 3rem 2rem 5rem;
+    }
+
+    .article-meta {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      padding: 1.5rem 0;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 2.5rem;
+    }
+
+    .article-meta span {
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+
+    .article-meta .dot {
+      color: var(--border);
+    }
+
+    .article-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      line-height: 1.25;
+      margin-bottom: 1rem;
+    }
+
+    .article-lead {
+      font-size: 1.1rem;
+      color: var(--text-secondary);
+      line-height: 1.8;
+      margin-bottom: 2.5rem;
+      padding-bottom: 2.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .article-section {
+      margin-bottom: 3rem;
+    }
+
+    .article-section h2 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .article-section h2::before {
+      content: '';
+      display: inline-block;
+      width: 4px;
+      height: 1.2em;
+      background: linear-gradient(180deg, var(--accent-orange), var(--accent-blue));
+      border-radius: 2px;
+      flex-shrink: 0;
+    }
+
+    .article-section p {
+      color: var(--text-secondary);
+      line-height: 1.9;
+      font-size: 1rem;
+    }
+
+    .article-img {
+      width: 100%;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      margin: 2rem 0;
+      object-fit: cover;
+      max-height: 480px;
+    }
+
+    .img-caption {
+      text-align: center;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-top: -1.2rem;
+      margin-bottom: 2rem;
+    }
+
+    .article-photo-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin: 2rem 0;
+    }
+
+    .article-photo-grid img {
+      width: 100%;
+      height: 280px;
+      object-fit: cover;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      transition: all var(--transition);
+    }
+
+    .article-photo-grid img:hover {
+      border-color: rgba(249,115,22,0.4);
+      transform: scale(1.02);
+    }
+
+    .highlight-box {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--accent-orange);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      padding: 1.5rem;
+      margin: 2rem 0;
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+      line-height: 1.8;
+    }
+
+    .article-footer-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 4rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
+    }
+
+    @media (max-width: 768px) {
+      .article-hero { height: 260px; }
+      .article-photo-grid { grid-template-columns: 1fr; }
+      .article-photo-grid img { height: 220px; }
+    }
+  </style>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-99Y4B3V18C"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-99Y4B3V18C');
+</script>
+</head>
+<body>
+
+  <nav>
+    <div class="nav-logo">Tech<span>&</span>Science</div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Ana Səhifə</a></li>
+      <li><a href="about.html">Haqqımızda</a></li>
+      <li><a href="projects.html" class="active">Layihələr</a></li>
+      <li><a href="contact.html">Əlaqə</a></li>
+    </ul>
+    <div class="hamburger" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </div>
+  </nav>
+
+  <!-- HERO ŞƏKİL -->
+  <img src="article3_hero.jpg" alt="Laboratoriya nümunələri" class="article-hero" />
+
+  <div class="article-body">
+
+    <!-- GERİ + TEQLƏR -->
+    <a href="projects.html" style="
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      margin-bottom: 1.5rem;
+    ">← Layihələrə qayıt</a>
+
+    <div style="display:flex; gap:0.5rem; flex-wrap:wrap; margin-bottom:1rem;">
+      <span class="tag">#FoodScience</span>
+      <span class="tag">#Titration</span>
+      <span class="tag">#pH</span>
+      <span class="tag">#AzTU</span>
+    </div>
+
+    <!-- BAŞLIQ -->
+    <h1 class="article-title">Titrasiya: Dəqiq Analiz Metodu</h1>
+
+    <div class="article-meta">
+      <span>🔬 Həsənli Zərrin</span>
+      <span class="dot">·</span>
+      <span>AzTU — Qida Mühəndisliyi</span>
+      <span class="dot">·</span>
+      <span>📅 2024</span>
+    </div>
+
+    <!-- GİRİŞ -->
+    <p class="article-lead">
+      Titrasiya: Maddə Miqdarının Təyini Üçün Dəqiq Analiz Metodu
+Titrasiya (və ya titrləmə) – qatılığı məlum olmayan bir məhlulun (analit) qatılığını, qatılığı dəqiq bilinən başqa bir məhlulun (titrant) köməyi ilə təyin etmək üçün istifadə olunan kəmiyyət analizi metodudur. Kimya laboratoriyalarında ən çox istifadə edilən klassik metodlardan biridir.
+    </p>
+
+    <!-- BÖLMƏ 1 -->
+    <div class="article-section">
+      <h2>Titrasiyanın Əsas Komponentləri</h2>
+      <p>
+        Şəkillərinizdə də gördüyümüz kimi, proses üçün aşağıdakı avadanlıq və maddələr zəruridir:Büret: Titrantın (qatılığı məlum olan məhlul) damla-damla əlavə edilməsi üçün istifadə olunan dərəcəli şüşə boru. (Şəkillərinizdə büretin göstəricisi təxminən 2.8 ml civarında görünür).Erlenmeyer kolbası: Reaksiyanın getdiyi qab.Titrant: Büretdəki məhlul (məsələn, $NaOH$).Analit: Erlenmeyer kolbasındakı qatılığı axtarılan məhlul (məsələn, $HCl$).İndikator: Reaksiyanın bitdiyini rəng dəyişimi ilə göstərən maddə. Sizin təcrübənizdə Fenolftalein istifadə olunub.
+      </p>
+    </div>
+
+    <!-- ŞƏKİL CÜTLƏRİ -->
+    <div class="article3_photo3.jpg-grid">
+      <img src="article3_photo1.jpg" alt="Nümunə şüşəsi 1" />
+      <img src="article3_photo2.jpg" alt="Nümunə şüşəsi 2" />
+    </div>
+    <p class="img-caption">2. Proses Necə İşləyir?</p>
+
+    <!-- BÖLMƏ 2 -->
+    <div class="article-section">
+      <h2>Titrasiya zamanı titrant analitin üzərinə yavaş-yavaş əlavə edilir. Bu zaman iki mühüm nöqtə var:</h2>
+      <p>
+        Ekvivalentlik nöqtəsi: Əlavə olunan titrantın miqdarının analitlə tam kimyəvi reaksiyaya girdiyi (stexiometrik olaraq bərabərləşdiyi) nəzəri nöqtə.
+
+Son nöqtə: İndikatorun rənginin dəyişdiyi və təcrübənin dayandırıldığı an. Şəkillərinizdəki tünd çəhrayı rəng reaksiyanın son nöqtəyə çatdığını (və ya bir az keçdiyini) göstərir.
+      </p>
+    </div>
+
+    <div class="highlight-box">
+      💡 <strong>Elmi qeyd:</strong> Turşu-əsas titrləməsində fenolftalein turşu mühitində rəngsiz, əsasi (bazik) mühitdə isə çəhrayı olur. Çəhrayı rəngin qalıcı olması titrləmənin başa çatdığı deməkdir.
+    </div>
+
+    <!-- BÖLMƏ 3 -->
+    <div class="article-section">
+      <h2>Mikrobioloji Təhlükəsizlik və Yekun</h2>
+      <p>
+       3. Hesablama FormuluTitrasiya nəticəsində məhlulun qatılığını hesablamaq üçün adətən aşağıdakı düsturdan istifadə olunur:$$M_1 \cdot V_1 = M_2 \cdot V_2$$Burada:$M_1$: Titrantın molyar qatılığı$V_1$: Büretdən sərf olunan həcm$M_2$: Analitin (naməlum) qatılığı$V_2$: Analitin ilkin həcmi
+      </p>
+      <p style="margin-top:1rem;">
+        4. Titrasiyanın Tətbiq Sahələri
+Titrasiya yalnız dərsliklərdə deyil, sənayedə də geniş istifadə olunur:
+
+Qida sənayesi: Südün turşuluğunun və ya sirkədəki sirkə turşusunun təyini.
+
+Əczaçılıq: Dərman preparatlarının tərkibindəki aktiv maddələrin təmizliyinin yoxlanılması.
+
+Su analizi: Suyun sərtliyinin və ya tərkibindəki xlorun miqdarının ölçülməsi.
+
+Ətraf mühit: Çay və göllərin çirklənmə dərəcəsinin analizi.
+      </p>
+    </div>
+
+    <!-- NƏTİCƏ QUTUSU -->
+    <div style="
+      background: linear-gradient(135deg, rgba(249,115,22,0.08), rgba(59,130,246,0.08));
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 2rem;
+      margin-top: 2rem;
+    ">
+      <h3 style="
+        font-family: 'Space Grotesk', sans-serif;
+        font-size: 1rem;
+        font-weight: 600;
+        margin-bottom: 0.8rem;
+        color: var(--accent-orange);
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-size: 0.8rem;
+      ">Tədqiqatın Əsas Nəticələri</h3>
+      <ul style="
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 0.6rem;
+        color: var(--text-secondary);
+        font-size: 0.95rem;
+      ">
+       <p>Aparılan bu tədqiqat, həm texniki icra (titrləmə dəqiqliyi), həm də innovativ yanaşma (təbii indikator tətbiqi) baxımından uğurla tamamlanmışdır. Müəyyən edilmişdir ki, laboratoriya şəraitində qida təhlükəsizliyi normalarına tam riayət etməklə yüksək dəqiqlikli analizlər aparmaq mümkündür.
+    </p>
+    </div>
+
+    <!-- ALT NAVİQASİYA -->
+    <div class="article-footer-nav">
+      <a href="projects.html" class="btn btn-outline">← Layihələrə qayıt</a>
+          </div>
+
+  </div>
+
+  <footer>
+    <p>© 2024 <span>Tech & Science</span> — Bütün hüquqlar qorunur.</p>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      document.getElementById('navLinks').classList.toggle('open');
+    }
+  </script>
+
+</body>
+</html>
